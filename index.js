@@ -54,16 +54,10 @@ portfolioApp.use("/api/v1", volunteeringRouter);
 expressOasGenerator.handleRequests();
 portfolioApp.use((req, res) => res.redirect('/api-docs/'));
 
-// const reboot = async () => {
-//   setInterval(restartServer, process.env.INTERVAL)
-// }
 
 dbConnection()
   .then(() => {
     portfolioApp.listen(PORT, () => {
-      // reboot().then(() => {
-      //   console.log(`Server Restarted`);
-      // });
       console.log(`Server is connected to Port ${PORT}`);
     });
   })
